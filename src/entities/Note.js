@@ -4,7 +4,7 @@
 // what the project considers to be a Note
 
 
-export default class Note{
+export class Note{
     constructor(id, author, author_id, title, content, creationDate, lastModifiedDate = null){
         this.id = id;
         this.author = author;
