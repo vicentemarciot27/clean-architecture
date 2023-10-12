@@ -8,7 +8,7 @@ export class CreateNote {
     this.noteRepository = noteRepository;
   }
 
-  async execute(title) {
-    return this.noteRepository.CreateNote(title);
+  async execute(author, author_id, title, content) {
+    return this.noteRepository.CreateNote(author, author_id, title, content);
   }
 }

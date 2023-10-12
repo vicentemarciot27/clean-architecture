@@ -8,7 +8,7 @@ const noteRepository = new InMemoryNoteRepository();
 const noteController = new NoteController(noteRepository);
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/CreateNote", async (req, res) => {
   try {
     const request = new Request(req);
     const response = new Response((error, { status, body }) => {

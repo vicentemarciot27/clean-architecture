@@ -11,9 +11,16 @@ export class InMemoryNoteRepository {
   }
 
   //CRUD: Create, Read, Update, Delete
-  async CreateNote(title, content) {
-    const currentDate = dateAdapter.getCurrentDate();
-    const note = new Note(this.idCounter++, title, content, currentDate);
+  async CreateNote(author, author_id, title, content) {
+    const currentDate = this.dateAdapter.getCurrentDate();
+    const note = new Note(
+      this.idCounter++,
+      author,
+      author_id,
+      title,
+      content,
+      currentDate
+    );
 
     this.notes.push(note);
     return note;

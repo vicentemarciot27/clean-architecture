@@ -14,7 +14,7 @@ export class NoteController {
     this.noteRepository = noteRepository;
   }
 
-  async create(request) {
+  async CreateNote(request) {
     const createNote = new CreateNote(this.noteRepository);
     if (await this.noteRepository.FindNoteByID(request.body.id)) {
       return { status: 409, body: { message: "Note id already exists" } };
@@ -30,7 +30,7 @@ export class NoteController {
       return { status: 200, body: notes };
     }
     return { status: 404, body: { message: "No notes found :(" } };
-  } 
+  }
 
   async FindNoteByID(request) {
     const findNote = new FindNoteByID();
@@ -83,4 +83,3 @@ export class NoteController {
     return { status: 404, body: { message: "Note not found" } };
   }
 }
-

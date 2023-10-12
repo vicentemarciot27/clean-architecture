@@ -5,9 +5,10 @@
 
 
 export default class Note{
-    constructor(id, author, title, content, creationDate, lastModifiedDate = null){
+    constructor(id, author, author_id, title, content, creationDate, lastModifiedDate = null){
         this.id = id;
         this.author = author;
+        this.author_id = author_id;
         this.title = title;
         this.content = content;
         this.creationDate = creationDate;
