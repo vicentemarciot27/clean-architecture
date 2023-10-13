@@ -1,6 +1,6 @@
 // Abstraction for the response so that it is framework agnostic
 
-class Response {
+export class Response {
   constructor(callback) {
     this.callback = callback;
   }

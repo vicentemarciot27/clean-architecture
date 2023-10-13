@@ -19,5 +19,8 @@ export class DateAdapter {
         return this.dateImplementation.format(date, formatString);
     }
 
-    // ... any other general date methods that map to the framework-specific implementation
+    isInSameMinute(date1, date2) {
+        return this.dateImplementation.isInSameMinute(date1, date2);
+    }
+    
 }

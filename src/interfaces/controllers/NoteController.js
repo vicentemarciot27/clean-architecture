@@ -19,17 +19,17 @@ export class NoteController {
     if (await this.noteRepository.FindNoteByID(request.body.id)) {
       return { status: 409, body: { message: "Note id already exists" } };
     }
-    const note = await createNote.execute(request.body.title);
-    return { status: 201, body: note };
-  }
+    console.log("Request Body", request.body);
 
-  async ListNotes(request) {
-    const listNotes = new ListNotes(this.noteRepository);
-    const notes = await listNotes.execute();
-    if (notes.length === 0) {
-      return { status: 200, body: notes };
-    }
-    return { status: 404, body: { message: "No notes found :(" } };
+    const params = [
+      request.body.author,
+      request.body.author_id,
+      request.body.title,
+      request.body.content,
+    ];
+    const note = await createNote.execute(...params);
+
+    return { status: 201, body: note };
   }
 
   async FindNoteByID(request) {

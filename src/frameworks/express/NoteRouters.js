@@ -12,13 +12,18 @@ router.post("/CreateNote", async (req, res) => {
   try {
     const request = new Request(req);
     const response = new Response((error, { status, body }) => {
-      if (error) res.status(500).send(error.message);
-      else res.status(status).send(body);
+      if (error) {
+        console.error(error); 
+        return res.status(500).send(error.message);
+      }
+      res.status(status).send(body);
     });
 
     const result = await noteController.CreateNote(request);
+    console.log("Result:", result);  
     response.status(result.status).json(result.body);
   } catch (err) {
+    console.error(err); 
     res.status(500).send(err.message);
   }
 });

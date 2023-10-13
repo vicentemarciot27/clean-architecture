@@ -11,5 +11,8 @@ export class MomentDateImplementation {
         return moment(date).format(formatString);
     }
 
-    // ... any other moment.js specific methods
+    isInSameMinute(date1, date2) {
+        return moment(date1).isSame(date2, 'minute');
+    }
+
 }
